@@ -20,6 +20,8 @@ $("#add-train-btn").on("click", function (event) {
     var firstTrain = $("#first-train-input").val().trim();
     var frequency = $("#frequency-input").val().trim();
 
+
+
     // Creates local "temporary" object for holding employee data
     var newTrain = {
         name: trainName,
@@ -81,11 +83,8 @@ function getMinutesAway(frequency, firstTrain) {
     var firstTimeConverted = moment(firstTrain, "HH:mm").subtract(1, "years");
 
     var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-    console.log("DIFFERENCE IN TIME: " + diffTime);
 
     var remainder = diffTime % frequency;
-    console.log(remainder);
-
 
     var minutesTillTrain = frequency - remainder;
     return minutesTillTrain;
